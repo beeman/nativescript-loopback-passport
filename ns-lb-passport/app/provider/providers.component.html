@@ -1,0 +1,15 @@
+<ActionBar title="Login Providers" class="action-bar"></ActionBar>
+
+<StackLayout class="page">
+  <ListView [items]="providers">
+    <ng-template let-provider="item">
+
+      <Button class="btn btn-outline icon btn-active" (tap)="onTap(provider.id)">
+        <FormattedString>
+          <Span text=" Sign up with " foregroundColor="#3B5998"></Span>
+          <Span [text]="provider.name" fontAttributes="Bold" [foregroundColor]="provider.color"></Span>
+        </FormattedString>
+      </Button>
+    </ng-template>
+  </ListView>
+</StackLayout>
