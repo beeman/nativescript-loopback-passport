@@ -1,6 +1,8 @@
 const axios = require('axios')
 const crypto = require('crypto')
 
+const gravatar = require('./gravatar')
+
 const baseUrl = 'https://graph.facebook.com'
 
 const fields = [
@@ -19,7 +21,7 @@ const normalize = profile => ({
   email: profile.email,
   firstName: profile.first_name,
   lastName: profile.last_name,
-  avatar: profile.picture.data.is_silhouette ? null : profile.picture.data.url,
+  avatar: profile.picture.data.is_silhouette ? gravatar(profile.email) : profile.picture.data.url,
   password: crypto.randomBytes(32).toString('hex'),
 })
 
