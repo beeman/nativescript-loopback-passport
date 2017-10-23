@@ -2,4 +2,4 @@ api/node_modules
 ns-lb-passport/hooks
 ns-lb-passport/node_modules
 ns-lb-passport/platforms
-ns-lb-passport/app/*.js
+ns-lb-passport/**/*.js

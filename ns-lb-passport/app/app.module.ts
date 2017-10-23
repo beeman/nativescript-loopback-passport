@@ -1,11 +1,17 @@
-import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/nativescript.module";
-import { AppRoutingModule } from "./app.routing";
-import { AppComponent } from "./app.component";
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
+import { AppRoutingModule } from './app.routing';
+import { AppComponent } from './app.component';
 
-import { ProviderService } from "./provider/provider.service";
-import { ProvidersComponent } from "./provider/providers.component";
-import { ProviderDetailComponent } from "./provider/provider-detail.component";
+import { ProviderService } from './provider/provider.service';
+import { ProvidersComponent } from './provider/providers.component';
+import { ProviderDetailComponent } from './provider/provider-detail.component';
+
+
+import * as application from 'application';
+const nsFacebook = require('nativescript-facebook');
+
+application.on(application.launchEvent, () => nsFacebook.init('796785553857062'));
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -14,26 +20,27 @@ import { ProviderDetailComponent } from "./provider/provider-detail.component";
 // import { NativeScriptHttpModule } from "nativescript-angular/http";
 
 @NgModule({
-    bootstrap: [
-        AppComponent
-    ],
-    imports: [
-        NativeScriptModule,
-        AppRoutingModule
-    ],
-    declarations: [
-        AppComponent,
-        ProvidersComponent,
-        ProviderDetailComponent
-    ],
-    providers: [
-        ProviderService
-    ],
-    schemas: [
-        NO_ERRORS_SCHEMA
-    ]
+  bootstrap: [
+    AppComponent
+  ],
+  imports: [
+    NativeScriptModule,
+    AppRoutingModule
+  ],
+  declarations: [
+    AppComponent,
+    ProvidersComponent,
+    ProviderDetailComponent
+  ],
+  providers: [
+    ProviderService
+  ],
+  schemas: [
+    NO_ERRORS_SCHEMA
+  ]
 })
 /*
 Pass your application module to the bootstrapModule function located in main.ts to start your app
 */
-export class AppModule { }
+export class AppModule {
+}

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Provider } from './provider';
 import { ProviderService } from './provider.service';
 
+import { login as loginFacebook } from './provider.facebook'
+
 @Component({
   selector: 'ns-providers',
   moduleId: module.id,
@@ -18,7 +20,19 @@ export class ProvidersComponent implements OnInit {
   }
 
   onTap(providerId: string): void {
-    console.log(providerId)
+    switch (providerId) {
+      case 'facebook':
+        loginFacebook()
+          .then((res: any) => {
+            console.log('provider', providerId)
+            console.log('res', JSON.stringify(res))
+            alert(`Welcome ${res.firstName}`)
+          })
+          .catch(err => alert(err))
+        break;
+      default:
+        console.log(`Unknown provider ${providerId}`)
+    }
   }
 
 }
