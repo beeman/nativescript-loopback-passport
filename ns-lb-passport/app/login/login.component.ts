@@ -1,24 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterExtensions } from 'nativescript-angular'
 
-import { AuthProvider } from './auth-provider';
-import { LoginService } from './login.service';
+import { AppService } from '../app.service'
 
 @Component({
   selector: 'ns-providers',
   moduleId: module.id,
   templateUrl: './login.component.html',
 })
-export class LoginComponent implements OnInit {
-  providers: AuthProvider[];
+export class LoginComponent {
 
-  constructor(private providerService: LoginService) {}
+  providers: any[] = [
+    { id: 'facebook', name: 'Facebook', color: '#4267b2' },
+  ]
 
-  ngOnInit(): void {
-    this.providers = this.providerService.getAuthProviders();
-  }
+  constructor(private appService: AppService, private router: RouterExtensions,) {}
 
   onTap(providerId: string): void {
-    this.providerService.login(providerId)
+    switch (providerId) {
+      case 'facebook':
+        this.appService.loginWithFacebook()
+          .subscribe(
+            res => this.router.navigate(['/profile'], { clearHistory: true }),
+            err => alert(err),
+          )
+    }
   }
 
 }
