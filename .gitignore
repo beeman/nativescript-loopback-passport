@@ -3,3 +3,4 @@ ns-lb-passport/hooks
 ns-lb-passport/node_modules
 ns-lb-passport/platforms
 ns-lb-passport/**/*.js
+web/node_modules
