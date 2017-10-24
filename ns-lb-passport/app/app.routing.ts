@@ -2,13 +2,11 @@ import { NgModule } from '@angular/core';
 import { NativeScriptRouterModule } from 'nativescript-angular/router';
 import { Routes } from '@angular/router';
 
-import { ProvidersComponent } from './provider/providers.component';
-import { ProviderDetailComponent } from './provider/provider-detail.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/providers', pathMatch: 'full' },
-  { path: 'providers', component: ProvidersComponent },
-  { path: 'provider/:id', component: ProviderDetailComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({

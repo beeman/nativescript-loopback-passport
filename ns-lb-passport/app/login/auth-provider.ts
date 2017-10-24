@@ -1,6 +1,5 @@
-export class Provider {
+export class AuthProvider {
     id: string;
     name: string;
     color?: string;
-    icon?: string;
 }

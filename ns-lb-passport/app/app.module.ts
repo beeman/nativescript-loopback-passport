@@ -1,23 +1,18 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+
 import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
+import { NativeScriptHttpModule } from "nativescript-angular/http";
+
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 
-import { ProviderService } from './provider/provider.service';
-import { ProvidersComponent } from './provider/providers.component';
-import { ProviderDetailComponent } from './provider/provider-detail.component';
-
+import { LoginService } from './login/login.service';
+import { LoginComponent } from './login/login.component';
 
 import * as application from 'application';
 const nsFacebook = require('nativescript-facebook');
 
 application.on(application.launchEvent, () => nsFacebook.init('796785553857062'));
-
-// Uncomment and add to NgModule imports if you need to use two-way binding
-// import { NativeScriptFormsModule } from "nativescript-angular/forms";
-
-// Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
-// import { NativeScriptHttpModule } from "nativescript-angular/http";
 
 @NgModule({
   bootstrap: [
@@ -25,22 +20,19 @@ application.on(application.launchEvent, () => nsFacebook.init('796785553857062')
   ],
   imports: [
     NativeScriptModule,
-    AppRoutingModule
+    NativeScriptHttpModule,
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
-    ProvidersComponent,
-    ProviderDetailComponent
+    LoginComponent,
   ],
   providers: [
-    ProviderService
+    LoginService,
   ],
   schemas: [
-    NO_ERRORS_SCHEMA
-  ]
+    NO_ERRORS_SCHEMA,
+  ],
 })
-/*
-Pass your application module to the bootstrapModule function located in main.ts to start your app
-*/
-export class AppModule {
-}
+
+export class AppModule {}

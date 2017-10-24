@@ -1,0 +1,12 @@
+<ActionBar title="Login" class="action-bar"></ActionBar>
+
+<StackLayout class="page">
+  <Label class="p-t-15"></Label>
+  <ng-container *ngFor="let provider of providers">
+    <Button class="btn btn-primary"
+            foregroundColor="#ffffff"
+            [backgroundColor]="provider.color"
+            (tap)="onTap(provider.id)"
+            [text]="'Sign up with ' + provider.name"></Button>
+  </ng-container>
+</StackLayout>
