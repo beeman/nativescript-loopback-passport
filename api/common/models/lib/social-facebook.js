@@ -25,7 +25,7 @@ const normalize = profile => ({
   password: crypto.randomBytes(32).toString('hex'),
 })
 
-const auth = token => axios
+const login = token => axios
   .get(api('me', token, `&fields=${fields.join(',')}`))
   .then(res => normalize(res.data))
   .catch(err => {
@@ -34,4 +34,6 @@ const auth = token => axios
     return Promise.reject(err.response.data.error)
   })
 
-module.exports = auth
+module.exports = {
+  login,
+}

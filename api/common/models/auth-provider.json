@@ -19,6 +19,10 @@
     "type": {
       "type": "string",
       "required": true
+    },
+    "config": {
+      "type": "object",
+      "required": false
     }
   },
   "validations": [],
