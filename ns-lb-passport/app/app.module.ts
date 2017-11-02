@@ -4,6 +4,7 @@ import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 import { NativeScriptHttpModule } from "nativescript-angular/http";
 
 import './fb'
+import './twitter'
 
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';

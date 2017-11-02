@@ -3,6 +3,7 @@
 // Defined the handlers to do the actual authentication
 const handlers = {
   facebook: require('./lib/social-facebook'),
+  twitter: require('./lib/social-twitter'),
 }
 
 // Disabled remote methods

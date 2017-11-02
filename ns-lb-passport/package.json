@@ -6,7 +6,7 @@
 	"nativescript": {
 		"id": "org.nativescript.nslbpassport",
 		"tns-ios": {
-			"version": "3.2.0"
+			"version": "3.3.0"
 		}
 	},
 	"dependencies": {
@@ -21,9 +21,10 @@
 		"nativescript-angular": "~4.4.0",
 		"nativescript-facebook": "^2.0.1",
 		"nativescript-theme-core": "~1.0.2",
+		"nativescript-twitter": "^2.0.0",
 		"reflect-metadata": "~0.1.8",
 		"rxjs": "~5.4.2",
-		"tns-core-modules": "~3.2.0",
+		"tns-core-modules": "^3.3.0",
 		"zone.js": "~0.8.2"
 	},
 	"devDependencies": {

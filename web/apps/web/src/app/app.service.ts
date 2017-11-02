@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable'
 import 'rxjs/add/observable/empty'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/observable/fromPromise'
+import 'rxjs/add/observable/of'
 import 'rxjs/add/operator/mergeMap'
 
 const baseUrl = 'http://localhost:3000/api'
@@ -42,5 +43,10 @@ export class AppService {
 
   loginWithFacebook(): Observable<any> {
     return this.fbLogin().flatMap((token: any) => this.apiLogin('facebook', token))
+  }
+
+  loginWithTwitter(): Observable<any> {
+    console.log('Login With Twitter')
+    return Observable.of({ dummy: 'object' })
   }
 }
